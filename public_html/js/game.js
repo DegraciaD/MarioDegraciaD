@@ -12,7 +12,7 @@ var game = {
 	// Run on page load.
 	"onload" : function () {
 	// Initialize the video.
-	if (!me.video.init("screen",  me.video.CANVAS, 480, 320, true, 'auto')) {
+	if (!me.video.init("screen",  me.video.CANVAS, 1000, 600, true, 'auto')) {
 		alert("Your browser does not support HTML5 canvas.");
 		return;
 	}
@@ -39,10 +39,16 @@ var game = {
 
 	// Run on game resources loaded.
 	"loaded" : function () {
-		me.state.set(me.state.MENU, new game.TitleScreen());
+            me.pool.register("Ultra Mario",game.playerEntity, true);
+
+            
+            me.pool.register("levelTrigger", game.levelTrigger);
+		
+            
+            me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
 
 		// Start the game.
-		me.state.change(me.state.PLAY);
+		me.state.change(me.state.MENU);
 	}
 };
