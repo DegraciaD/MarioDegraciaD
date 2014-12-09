@@ -43,6 +43,12 @@ var game = {
 
             
             me.pool.register("levelTrigger", game.levelTrigger);
+            me.pool.register("levelTrigger", game.levelTrigger);
+            me.pool.register("BadGuy", game.BadGuy);
+            
+            
+		
+             
 		
             
             me.state.set(me.state.MENU, new game.TitleScreen());

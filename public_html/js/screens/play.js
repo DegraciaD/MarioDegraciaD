@@ -6,11 +6,13 @@ game.PlayScreen = me.ScreenObject.extend({
 		// reset the score
 		game.data.score = 0;
 
-           me.levelDirector.loadLevel("Ultra Mario level01");
+           me.levelDirector.loadLevel("Ultra Mario Level01");
                    
            this.resetplayer(0,350);
                      
             me.input.bindKey(me.input.KEY.RIGHT, "right");
+            me.input.bindKey(me.input.KEY.LEFT, "left");
+          me.input.bindKey(me.input.KEY.SPACE,"jump", true);
 
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();
@@ -28,6 +30,6 @@ game.PlayScreen = me.ScreenObject.extend({
         
         resetplayer: function(x, y){
              var player = me.pool.pull("Ultra Mario", x, y, {});
-             me.game.world.addChild(player, 5);
+             me.game.world.addChild(player, 6);
         }
 });
